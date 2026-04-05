@@ -1,4 +1,5 @@
 node_modules
+*.md
 
 # Backend
 backend/node_modules
