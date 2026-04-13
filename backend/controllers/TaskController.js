@@ -4,7 +4,7 @@ export const getTasks = async (req, res) => {
     try {
         const tasks = await prisma.task.findMany({
             orderBy: { 
-                createdAt: 'desc'
+                updatedAt: 'desc'
             },
         });
         res.status(200).json(tasks);
@@ -16,11 +16,21 @@ export const getTasks = async (req, res) => {
 
 export const getTasksById = async (req, res) => {
     try {
+        const taskId = Number(req.params.id);
+
+        if (isNaN(taskId)) {
+            return res.status(400).json({ error: 'Format ID tidak valid' });
+        }
+
         const tasks = await prisma.task.findUnique({
             where: { 
-                id: Number(req.params.id)
+                id: taskId
             },
         })
+
+        if (!tasks) {
+            return res.status(404).json({ error: 'Task tidak ditemukan' });
+        }
         res.status(200).json(tasks);
     } catch (error) {
         console.error(error);
