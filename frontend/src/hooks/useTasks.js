@@ -11,5 +11,5 @@ export function useTasks() {
         isLoading,
         isError: error,
         mutate,
-    }
+    };
 }
