@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "Host Grotesk";
+    src: url("./fonts/HostGrotesk.ttf") format("truetype"),
+            url("./fonts/HostGrotesk.woff2") format("woff2");
+    font-display: swap; 
+    font-optical-sizing: auto;
+    font-weight: 300 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Host Grotesk";
+    src: url("./fonts/HostGrotesk-Italic.ttf") format("truetype"),
+            url("./fonts/HostGrotesk-Italic.woff2") format("woff2");
+    font-display: swap;
+    font-optical-sizing: auto;
+    font-weight: 300 800;
+    font-style: italic;
+}
+
+@import "tailwindcss";
+
+@theme {
+    /* Typography */
+    --font-grotesque: "Host Grotesk", sans-serif;
+
+    /* Font Sizes */
+    --text-display-1: 4rem;
+    --text-display-2: 3.5rem;
+    --text-display-3: 3rem;
+    --text-display-4: 2rem;
+    --text-h1: 2.5rem;
+    --text-h2: 2rem;
+    --text-h3: 1.75rem;
+    --text-h4: 1.5rem;
+    --text-p-lead: 1.25rem;
+    --text-p-base: 1rem;
+    --text-p-sm: 0.8125rem;
+
+    /* Colors */
+    --color-neo-green: #92fedf;
+    --color-neo-green-hover: #7eeacb;
+    --color-neo-orange: #ffaa82;
+    --color-neo-orange-hover: #eb9f7b;
+    --color-neo-red: #ff8188;
+    --color-neo-red-hover: #eb6d74;
+    --color-neo-violet: #9f87ff;
+    --color-neo-violet-hover: #8b73eb;
+    --color-neo-link: #0d6efd;
+    --color-neo-link-hover: #005ae9;
+    --color-neo-grey: #6c757d;
+    --color-neo-grey-hover: #586169;
+    --color-neo-black: #000000;
+    --color-neo-white: #ffffff;
+
+    /* Shadows */
+    --shadow-neo: 2px 2px 0px 0px var(--color-neo-black);
+    --shadow-neo-lg: 3px 3px 0px 0px var(--color-neo-black);
+    --shadow-neo-xl: 4px 4px 0px 0px var(--color-neo-black);
+    --shadow-neo-danger: 2px 2px 0px 0px var(--color-neo-red);
+}
+
+@layer base {
+    body {
+        @apply font-grotesque bg-neo-white text-neo-black antialiased selection:bg-neo-green;
+    }
+}
